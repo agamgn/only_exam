@@ -21,4 +21,8 @@ a {
   margin: 0;
   padding: 0;
 }
+#app {
+  font-family: "Microsoft YaHei", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  background-color: #eee;
+}
 </style>
