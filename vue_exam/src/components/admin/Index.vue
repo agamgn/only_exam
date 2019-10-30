@@ -19,16 +19,16 @@
 <script>
 import header from '@/components/common/Header'
 import mainLeft from '@/components/common/MainLeft'
-// import navigator from '@/components/common/navigator'
+import navigator from '@/components/common/Navigator'
 export default {
   components:{
     header1: header,
     mainLeft: mainLeft,
-    // navigator:navigator
+    navigator:navigator
   },
   data() {
     return {
-      username: '许如梦'
+      username: '鄭尚錕'
     }
   },
   methods: {
