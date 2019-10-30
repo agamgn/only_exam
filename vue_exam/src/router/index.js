@@ -47,13 +47,13 @@ export default new Router({
           //   component: () => import('@/components/teacher/allStudentsGrade')
           // },
           {
-            path: '/examDescription', //考试管理功能描述
+            path: '/examdescription', //考试管理功能描述
             component: () => import('@/components/teacher/examdescription/ExamDescription')
           },
-          // {
-          //   path: '/selectExam', //查询所有考试
-          //   component: () => import('@/components/teacher/selectExam')
-          // },
+          {
+            path: '/queryexam', //查询所有考试
+            component: () => import('@/components/teacher/queryexam/QueryExam')
+          },
           // {
           //   path: '/addExam', //添加考试
           //   component: () => import('@/components/teacher/addExam')
