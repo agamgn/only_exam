@@ -7,6 +7,11 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'login', //登录界面
+      component: () => import('@/components/common/Login')
+    },
+    {
       path: '/student',
       component: () => import('@/components/student/index'),
       children: [
