@@ -54,10 +54,10 @@ export default new Router({
             path: '/queryexam', //查询所有考试
             component: () => import('@/components/teacher/queryexam/QueryExam')
           },
-          // {
-          //   path: '/addExam', //添加考试
-          //   component: () => import('@/components/teacher/addExam')
-          // },
+          {
+            path: '/addExam', //添加考试
+            component: () => import('@/components/teacher/addexam/AddExam')
+          },
           {
             path: '/answerDescription', //题库管理功能介绍
             component: ()=> import('@/components/teacher/Answerdescription/AnswerDescription')
