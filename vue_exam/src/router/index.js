@@ -38,10 +38,10 @@ export default new Router({
             path: '/selectExamToPart', //学生分数段
             component: () => import('@/components/teacher/selectexamtopart/SelectExamToPart')
           },
-          // {
-          //   path: '/scorePart',
-          //   component: () => import('@/components/charts/scorePart')
-          // },
+          {
+            path: '/scorePart',
+            component: () => import('@/components/charts/scorePart')
+          },
           {
             path: '/allstudentsgrade', //所有学生成绩统计
             component: () => import('@/components/teacher/allstudentsgrade/AllStudentsGrade')
