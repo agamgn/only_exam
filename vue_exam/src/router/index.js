@@ -28,10 +28,10 @@ export default new Router({
       path: '/index', //教师主页
       component: () => import('@/components/admin/Index'),
       children: [
-          // {
-          //   path: '/', //首页默认路由
-          //   component: () => import('@/components/common/hello')
-          // },
+          {
+            path: '/', //首页默认路由
+            component: () => import('@/components/common/hello')
+          },
           {
             path:'/grade', //学生成绩
             component: () => import('@/components/charts/grade')
