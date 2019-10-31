@@ -23,6 +23,7 @@ export default new Router({
         {path: '/examMsg', component: () => import('@/components/student/exammsg/ExamMsg')},
       ]
     },
+    {path: '/answer',component: () => import('@/components/student/answer/Answer')},
     {
       path: '/index', //教师主页
       component: () => import('@/components/admin/Index'),

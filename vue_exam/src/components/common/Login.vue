@@ -20,13 +20,13 @@
               <div class="submit">
                 <el-button type="primary" class="row-login" @click="login()">登录</el-button>
               </div>
-            <div class="options">
+              <!-- <div class="options">
                 <p class="find"><a href="javascript:;">找回密码</a></p>
                 <div class="register">
                   <span>没有账号?</span>
                   <span><a href="javascript:;">去注册</a></span>
                 </div>
-              </div> 
+              </div> -->
             </el-form>
           </div>
         </div>
@@ -34,7 +34,7 @@
     </el-row>
     <el-row class="footer">
       <el-col>
-        <p class="msg2">版权所有 ©2019 保留所有权利 蜀ICP备******号</p>
+        <p class="msg2">版权所有 ©2019 </p>
       </el-col>
     </el-row>
     <section class="remind">
@@ -88,6 +88,7 @@ export default {
               this.$router.push({path: '/index' }) //跳转到教师用户
               break
             case "2": //学生
+            console.log(this)
               this.$cookies.set("cname", resData.studentName)
               this.$cookies.set("cid", resData.studentId)
               this.$router.push({path: '/student'})
@@ -154,9 +155,9 @@ a:link {
   background-color: #b6bccdd1 !important;
 }
 #login .main-container {
- display: flex;
- justify-content:center;
-   align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #login .main-container .top {
   margin-top: 100px;
@@ -172,10 +173,10 @@ a:link {
   margin-top: 20px;
 }
 #login .bottom {
-display: flex;
-justify-content: center;
-border-radius: 5px;
-background-color: #fff;
+  display:flex;
+  justify-content: center;
+  background-color:#fff;
+  border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #login .bottom .title {
