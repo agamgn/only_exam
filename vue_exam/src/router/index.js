@@ -80,16 +80,16 @@ export default new Router({
             path: '/studentmanage', //学生管理界面
             component: () => import('@/components/teacher/studentmanage/StudentManage')
           },
-          // {
-          //   path: '/addStudent', //添加学生
-          //   component: () => import('@/components/teacher/addStudent')
-          // },
           {
-            path: '/teacherManage',
+            path: '/addstudent', //添加学生
+            component: () => import('@/components/teacher/addstudent/AddStudent')
+          },
+          {
+            path: '/teachermanage',
             component: () => import('@/components/admin/teachermanage/TeacherManage')
           },
           {
-            path: '/addTeacher',
+            path: '/addteacher',
             component: () => import ('@/components/admin/addteacher/AddTeacher')
           }
       ]
