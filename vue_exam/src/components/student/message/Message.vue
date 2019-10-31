@@ -23,7 +23,7 @@
         <el-button type="primary" @click="submit()">提交留言</el-button>
       </div>
       <div class="all">
-        <ul class="msglist">
+               <ul class="msglist">
           <li class="list" 
           @mouseenter="enter(index)" 
           @mouseleave="leave(index)"

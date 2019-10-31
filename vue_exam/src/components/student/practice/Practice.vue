@@ -27,14 +27,14 @@
         <li class="search-li"><div class="icon"><input type="text" placeholder="试卷名称" class="search" v-model="key"><i class="el-icon-search"></i></div></li>
         <li><el-button type="primary" @click="search()">搜索试卷</el-button></li>
       </ul>
-      <ul class="paper" v-loading="loading">
-        <li class="item">
-          <h4 ></h4>
-          <p class="name"></p>
+           <ul class="paper" v-loading="loading">
+        <li class="item" v-for="(item,index) in pagination.records" :key="index">
+          <h4 @click="toExamMsg(item.examCode)">{{item.source}}</h4>
+          <p class="name">{{item.source}}-{{item.description}}</p>
           <div class="info">
-            <i class="el-icon-loading"></i><span></span>
-            <i class="iconfont icon-icon-time"></i><span>限时10分钟</span>
-            <i class="iconfont icon-fenshu"></i><span>满分100分</span>
+            <i class="el-icon-loading"></i><span>{{item.examDate.substr(0,10)}}</span>
+            <i class="iconfont icon-icon-time"></i><span v-if="item.totalTime != null">限时{{item.totalTime}}分钟</span>
+            <i class="iconfont icon-fenshu"></i><span>满分{{item.totalScore}}分</span>
           </div>
         </li>
       </ul>
@@ -68,7 +68,46 @@ export default {
       }
     }
   },
+  created() {
+    this.getExamInfo()
+    this.loading = true
+  },
+  // watch: {
+    
+  // },
   methods: {
+    //获取当前所有考试信息
+    getExamInfo() {
+      this.$axios(`/api/exams/${this.pagination.current}/${this.pagination.size}`).then(res => {
+        this.pagination = res.data.data
+        this.loading = false
+        console.log(this.pagination)
+      }).catch(error => {
+        console.log(error)
+      })
+    },
+    //改变当前记录条数
+    handleSizeChange(val) {
+      this.pagination.size = val
+      this.getExamInfo()
+    },
+    //改变当前页码，重新发送请求
+    handleCurrentChange(val) {
+      this.pagination.current = val
+      this.getExamInfo()
+    },
+    //搜索试卷
+    search() {
+      this.$axios('/api/exams').then(res => {
+        if(res.data.code == 200) {
+          let allExam = res.data.data
+          let newPage = allExam.filter(item => {
+            return item.source.includes(this.key)
+          })
+          this.pagination.records = newPage
+        }
+      })
+    },
     //跳转到试卷详情页
     toExamMsg(examCode) {
       this.$router.push({path: '/examMsg', query: {examCode: examCode}})
