@@ -59,17 +59,17 @@ export default new Router({
             component: () => import('@/components/teacher/addexam/AddExam')
           },
           {
-            path: '/answerDescription', //题库管理功能介绍
+            path: '/answerdescription', //题库管理功能介绍
             component: ()=> import('@/components/teacher/Answerdescription/AnswerDescription')
           },
-          // {
-          //   path: '/selectAnswer', //查询所有题库
-          //   component: () => import('@/components/teacher/selectAnswer')
-          // },
-          // {
-          //   path: '/addAnswer', //增加题库主界面
-          //   component: () => import('@/components/teacher/addAnswer')
-          // },
+          {
+            path: '/queryanswer', //查询所有题库
+            component: () => import('@/components/teacher/queryanswer/QueryAnswer')
+          },
+          {
+            path: '/addAnswer', //增加题库主界面
+            component: () => import('@/components/teacher/addanswer/AddAnswer')
+          },
           // {
           //   path: '/addAnswerChildren', //点击试卷跳转到添加题库页面
           //   component: () => import('@/components/teacher/addAnswerChildren')
