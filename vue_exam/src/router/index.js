@@ -30,22 +30,22 @@ export default new Router({
           //   path: '/', //首页默认路由
           //   component: () => import('@/components/common/hello')
           // },
-          // {
-          //   path:'/grade', //学生成绩
-          //   component: () => import('@/components/charts/grade')
-          // },
-          // {
-          //   path: '/selectExamToPart', //学生分数段
-          //   component: () => import('@/components/teacher/selectExamToPart')
-          // },
+          {
+            path:'/grade', //学生成绩
+            component: () => import('@/components/charts/grade')
+          },
+          {
+            path: '/selectExamToPart', //学生分数段
+            component: () => import('@/components/teacher/selectexamtopart/SelectExamToPart')
+          },
           // {
           //   path: '/scorePart',
           //   component: () => import('@/components/charts/scorePart')
           // },
-          // {
-          //   path: '/allStudentsGrade', //所有学生成绩统计
-          //   component: () => import('@/components/teacher/allStudentsGrade')
-          // },
+          {
+            path: '/allstudentsgrade', //所有学生成绩统计
+            component: () => import('@/components/teacher/allstudentsgrade/AllStudentsGrade')
+          },
           {
             path: '/examdescription', //考试管理功能描述
             component: () => import('@/components/teacher/examdescription/ExamDescription')
@@ -67,17 +67,17 @@ export default new Router({
             component: () => import('@/components/teacher/queryanswer/QueryAnswer')
           },
           {
-            path: '/addAnswer', //增加题库主界面
+            path: '/addanswer', //增加题库主界面
             component: () => import('@/components/teacher/addanswer/AddAnswer')
           },
-          // {
-          //   path: '/addAnswerChildren', //点击试卷跳转到添加题库页面
-          //   component: () => import('@/components/teacher/addAnswerChildren')
-          // },
-          // {
-          //   path: '/studentManage', //学生管理界面
-          //   component: () => import('@/components/teacher/studentManage')
-          // },
+          {
+            path: '/addanswerchildren', //点击试卷跳转到添加题库页面
+            component: () => import('@/components/teacher/addanswerchildren/AddAnswerChildren')
+          },
+          {
+            path: '/studentmanage', //学生管理界面
+            component: () => import('@/components/teacher/studentmanage/StudentManage')
+          },
           // {
           //   path: '/addStudent', //添加学生
           //   component: () => import('@/components/teacher/addStudent')
