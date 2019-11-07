@@ -5,28 +5,32 @@
     <el-row class="main-container">
       <el-col :lg="8" :xs="16" :md="10" :span="10">
         <div class="top">
-          <i class="iconfont icon-kaoshi"></i><span class="title">在线考试系统</span>
+          <i class="iconfont icon-kaoshi"></i><span class="title">用户注册</span>
         </div>
         <div class="bottom">
           <div class="container">
             <p class="title">账号登录</p>
             <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
-              <!-- <el-form-item label="用户名">
-                <el-input v-model.number="formLabelAlign.username" placeholder="请输入用户名"></el-input>
-              </el-form-item>-->
+            
           <!-- 拍照 -->
             <video id="video" width="320" height="320" v-show="!logins"></video>   
             <div id="photo" v-show='logins'></div>          
        
             <canvas id="canvas" style="display:none" width="320" height="320"></canvas> 
 
-  <el-form-item label="用户Id">
+            <el-form-item label="用户Id">
                 <el-input v-model="formLabelAlign.student_ID" placeholder="请输入用户Id" ></el-input>
               </el-form-item> 
+                <el-form-item label="用户姓名">
+                <el-input v-model.number="formLabelAlign.student_NAME" placeholder="请输入用户姓名"></el-input>
+              </el-form-item>
+                  <el-form-item label="用户班级">
+                <el-input v-model.number="formLabelAlign.student_CLASS" placeholder="请输入用户班级"></el-input>
+              </el-form-item>
 
               <div class="submit">
                 <el-button id="snap" type="primary" class="row-login" v-show="!logins" @click="toggle">拍照</el-button>
-                <el-button type="primary" class="row-login" @click="login()" v-show='logins'>登录</el-button>
+                <el-button type="primary" class="row-login" @click="register()" v-show='logins'>注册</el-button>
               </div>
               <div class="options">
                 <p class="find"><a href="javascript:;">找回密码</a></p>
@@ -68,9 +72,14 @@ export default {
       //   username: '20154084',
       //   password: '123456'
       // }
-      formLabelAlign:{
-        imageBase:"",
-        student_ID:0
+      formLabelAlign: {
+        student_CLASS:"20154084",
+        student_ID:0,
+        student_NAME:"20154084"
+      },
+      formLabelAlignPhoto: {
+          imageBase:"",
+         student_ID:0,
       }
     }
   },
@@ -79,16 +88,35 @@ export default {
       this.logins=!this.logins;
     },
     //用户登录请求后台处理
-    login() {
-      console.log(...this.formLabelAlign)
-      console.log("登录操作执行-------");
+    register() {
+      console.log("注册操作执行-------");
       this.$axios({
-        url: `/api/user/manager/searchFace`,
+        url: `/api/user/manager/faceRe/`,
         method: 'post',
         data: {
-          ...this.formLabelAlign
+          ...this.formLabelAlignPhoto
         }
         
+      }).then(res=>{
+       console.log(res)
+        let resData = res.data.data
+        
+        if(resData == null) { //错误提示
+          this.$message({
+            showClose: true,
+            type: 'error',
+            message: '用户名或者密码错误'
+          })
+        }
+      })
+
+      console.log("测试注册")
+      this.$axios({
+          url:`/api/user/manager/`,
+           method: 'post',
+            data: {
+          ...this.formLabelAlign
+        }
       }).then(res=>{
        console.log(res)
         let resData = res.data.data
@@ -150,13 +178,13 @@ export default {
       //将获得的base64数据设置为photo的背景图
       // 此处传值有问题
       // that.$set(that.formLabelAlign,JSON.parse("str"))
-      that.formLabelAlign.imageBase=base64Data
+      that.formLabelAlignPhoto.imageBase=base64Data
       document.getElementById("photo").style.backgroundImage="url(data:image/png;base64,"+base64Data+")";
       // document.getElementById("text").innerHTML=base64Data;
       }
     },
     registers() {
-      this.$router.push({path:'/register'})
+      
     }
   },
 

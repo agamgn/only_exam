@@ -12,6 +12,11 @@ export default new Router({
       component: () => import('@/components/common/Login')
     },
     {
+      path: '/register',
+      name: 'register', //登录界面
+      component: () => import('@/components/common/Register')
+    },
+    {
       path: '/student',
       component: () => import('@/components/student/Index'),
       children: [
