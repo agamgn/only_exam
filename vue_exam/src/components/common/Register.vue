@@ -32,13 +32,7 @@
                 <el-button id="snap" type="primary" class="row-login" v-show="!logins" @click="toggle">拍照</el-button>
                 <el-button type="primary" class="row-login" @click="register()" v-show='logins'>注册</el-button>
               </div>
-              <div class="options">
-                <p class="find"><a href="javascript:;">找回密码</a></p>
-                <div class="register">
-                  <span>没有账号?</span>
-                  <span><a href="javascript:;" @click="registers()">去注册</a></span>
-                </div>
-              </div>
+             
             </el-form>
           </div>
         </div>
@@ -183,9 +177,6 @@ export default {
       // document.getElementById("text").innerHTML=base64Data;
       }
     },
-    registers() {
-      
-    }
   },
 
   computed: mapState(["userInfo"]),
@@ -296,16 +287,5 @@ a:link {
   color: #e3e3e3;
   margin-top: 70px;
 }
-.bottom .options {
-  margin-bottom: 40px;
-  color: #ff962a;
-  display: flex;
-  justify-content: space-between;
-}
-.bottom .options > a {
-  color: #ff962a;
-}
-.bottom .options .register span:nth-child(1) {
-  color: #8C8C8C;
-}
+
 </style>
